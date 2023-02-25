@@ -14,7 +14,7 @@ public class MovieConroller {
     MovieService movieService;
 
 @PostMapping("/add-movie")
-    public ResponseEntity<String> addmovie(@RequestBody Movie movie){
+    public ResponseEntity<String> addMovie(@RequestBody Movie movie){
 movieService.addMovie(movie);
 return new ResponseEntity<>("New movie Added Successfully",HttpStatus.CREATED);
 }
