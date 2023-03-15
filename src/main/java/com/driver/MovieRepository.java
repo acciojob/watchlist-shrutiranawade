@@ -30,9 +30,10 @@ public class MovieRepository {
         if(Moviemap.containsKey(movie) && Directormap.containsKey(director)){
             Moviemap.put(movie,Moviemap.get(movie));
             Directormap.put(director,Directormap.get(director));
+
             List<String> currentMovies = new ArrayList<String>();
             if (MovieDirectormap.containsKey(director)){
-                currentMovies = MovieDirectormap.get(director);
+                currentMovies = MovieDirectormap.get(director); //yash
             }
                 currentMovies.add(movie);
                 MovieDirectormap.put(director, currentMovies);
@@ -42,8 +43,8 @@ public class MovieRepository {
     public Movie findMovie(String movie){
        return Moviemap.get(movie);
     }
- public Director findDirector(String directorname){
-        return Directormap.get(directorname);
+ public Director findDirector(String director){
+        return Directormap.get(director);
  }
 
 
@@ -56,7 +57,7 @@ public class MovieRepository {
 
  return MovieList;
     }
-    public List findAllMovies(){
+    public List<Movie> findAllMovies(){
         return new ArrayList(Moviemap.keySet());
     }
 public void deleteDirector(String director){

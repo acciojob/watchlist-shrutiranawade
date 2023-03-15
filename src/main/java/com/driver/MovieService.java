@@ -18,11 +18,11 @@ public class MovieService {
     public void addMovieDirectorPair(String movie,String director){
         movieRepository.saveMovieDirectorPair(movie,director);
     }
-    public Movie findMovie(String moviename){
-        return movieRepository.findMovie(moviename);
+    public Movie findMovie(String movie){
+        return movieRepository.findMovie(movie);
     }
-    public Director findDirector(String directorname){
-        return movieRepository.findDirector(directorname);
+    public Director findDirector(String director){
+        return movieRepository.findDirector(director);
     }
     public List<String>findMoviesByDirector(String director){
         return  movieRepository.findMoviesbyDirector(director);

@@ -15,7 +15,7 @@ public class MovieConroller {
 
 @PostMapping("/add-movie")
     public ResponseEntity<String> addMovie(@RequestBody Movie movie){
-movieService.addMovie(movie);
+   movieService.addMovie(movie);
 return new ResponseEntity<>("New movie Added Successfully",HttpStatus.CREATED);
 }
 @PostMapping("/add-director")
@@ -34,22 +34,22 @@ return new ResponseEntity<>("New movie Added Successfully",HttpStatus.CREATED);
     return new ResponseEntity<>(movie1,HttpStatus.CREATED) ;
 }
 @GetMapping("/get-director-by-name/{director}")
-    public ResponseEntity<Director>findDirectorByName(@PathVariable String director){
+    public ResponseEntity<Director>getDirectorByName(@PathVariable String director){
     Director d1 = movieService.findDirector(director);
     return new ResponseEntity<>(d1,HttpStatus.CREATED);
 }
-@GetMapping("/find-movies-by-director/{director}")
-    public ResponseEntity<List<String>> findMoviesByDirectorName(@PathVariable String director){
+@GetMapping("/get-movies-by-director-name/{director}")
+    public ResponseEntity<List<String>> getMoviesByDirectorName(@PathVariable String director){
      List<String>movieList = movieService.findMoviesByDirector(director);
      return new ResponseEntity<>(movieList,HttpStatus.CREATED);
 }
 @GetMapping("/get-all-movies")
-    public ResponseEntity<List<String>>getallmovies(){
+    public ResponseEntity<List<String>>findAllMovies(){
     List<String> allmovieslist = movieService.findAllMovies();
     return new ResponseEntity<>(allmovieslist,HttpStatus.CREATED);
 }
 @DeleteMapping("/delete-director-by-name")
-    public ResponseEntity<String>deleteDirector(@RequestParam String director){
+    public ResponseEntity<String>deleteDirectorByName(@RequestParam String director){
     movieService.deleteDirector(director);
     return new ResponseEntity<>(director +"Deleted  Successfully",HttpStatus.CREATED);
 }
